@@ -306,24 +306,13 @@ test('RFC 6265 - disallowed characters in cookie-name', function () {
 	strictEqual(Cookies.get('	'), 'v', 'should handle the horizontal tab character');
 });
 
-module('removeCookie', lifecycle);
+module('remove', lifecycle);
 
 test('deletion', function () {
 	expect(1);
 	Cookies.set('c', 'v');
 	Cookies.remove('c');
 	strictEqual(document.cookie, '', 'should delete the cookie');
-});
-
-test('when sucessfully deleted', function () {
-	expect(1);
-	Cookies.set('c', 'v');
-	strictEqual(Cookies.remove('c'), true, 'returns true');
-});
-
-test('when cookie does not exist', function () {
-	expect(1);
-	strictEqual(Cookies.remove('c'), true, 'returns true');
 });
 
 test('with options', function () {
